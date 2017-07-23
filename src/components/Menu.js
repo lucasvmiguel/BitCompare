@@ -9,7 +9,9 @@ const Menu = () => (
       </Link>
     </div>
     <div className="col-xs-8 center padding-top-0-5">
-      <img className="width-2" src="logo.png"></img>
+      <Link to="/">
+        <img className="width-2" src="logo.png"></img>
+      </Link>
     </div>
     <div className="col-xs-2 center padding-top-0-5">
       <Link to="/">

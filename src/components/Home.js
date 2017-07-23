@@ -34,13 +34,13 @@ class Home extends React.Component {
             <img src="logo.png"/>
           </div>
           <div className="center search-section padding-top-2">
-            <h1 className="color-light-blue">WE ALL COMPARE PRODUCTS</h1>
+            <h1 className="light-blue">WE ALL COMPARE PRODUCTS</h1>
           </div>
           <div className="center search-section padding-top-2">
             <input type="text" name="search" className="input-search" value={this.state.value} onChange={this.handleChange} onKeyDown={this.handleKeyDown} placeholder="Procure por algum produto..."/>
             <button onClick={this.handleSubmit} className="btn-search">Buscar</button>
           </div>
-          <div className="center color-light-blue">
+          <div className="center light-blue">
             <p>Busque na americanas.com, submarino, shoptime, soubarato...</p>
           </div>
         </div>
