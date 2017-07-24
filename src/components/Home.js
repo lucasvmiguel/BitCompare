@@ -29,57 +29,19 @@ class Home extends React.Component {
   render() {
     return (
       <div>
-        <div className="flex-column center home-section">
-          <div className="center">
+        <div className="center home-section">
+          <div>
             <img src="logo.png"/>
           </div>
-          <div className="center search-section padding-top-2">
+          <div className="search-section padding-top-2">
             <h1 className="light-blue">WE ALL COMPARE PRODUCTS</h1>
           </div>
-          <div className="center search-section padding-top-2">
+          <div className="search-section padding-top-2">
             <input type="text" name="search" className="input-search" value={this.state.value} onChange={this.handleChange} onKeyDown={this.handleKeyDown} placeholder="Procure por algum produto..."/>
             <button onClick={this.handleSubmit} className="btn-search">Buscar</button>
           </div>
-          <div className="center light-blue">
+          <div className="padding-top-1 light-blue">
             <p>Busque na americanas.com, submarino, shoptime, soubarato...</p>
-          </div>
-        </div>
-        <div className="row padding-top-2 hidden-xs">
-          <div className="col-xs-2 center category-item">
-            <a href="/busca?conteudo=informatica">
-              <img src="svgs/laptop.svg" className="width-3"/>
-              <p>Informática</p>
-            </a>
-          </div>
-          <div className="col-xs-2 center category-item">
-            <a href="/busca?conteudo=smarthphone">
-              <img src="svgs/smartphone.svg" className="width-3"/>
-              <p>Smartphone</p>
-            </a>
-          </div>
-          <div className="col-xs-2 center category-item">
-            <a href="/busca?conteudo=eletrodomestico">
-              <img src="svgs/microwave.svg" className="width-3"/>
-              <p>Eletrodoméstico</p>
-            </a>
-          </div>
-          <div className="col-xs-2 center category-item">
-            <a href="/busca?conteudo=jogos">
-              <img src="svgs/videogame.svg" className="width-3"/>
-              <p>Jogos</p>
-            </a>
-          </div>
-          <div className="col-xs-2 center category-item">
-            <a href="/busca?conteudo=geladeira">
-              <img src="svgs/fridge.svg" className="width-3"/>
-              <p>Geladeira</p>
-            </a>
-          </div>
-          <div className="col-xs-2 center category-item">
-            <a href="/busca?conteudo=tv">
-              <img src="svgs/computer.svg" className="width-3"/>
-              <p>Televisão</p>
-            </a>
           </div>
         </div>
       </div>

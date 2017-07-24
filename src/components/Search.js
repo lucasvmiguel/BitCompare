@@ -7,12 +7,13 @@ const Search = ({loading, searchTerm, products}) => {
   let productsComp = [];
 
   if (products) {
-    for (let i = 0; i < products.length; i=i+3) {
+    for (let i = 0; i < products.length; i=i+4) {
       productsComp.push(
         <div className="row width-100">
           {products[i] && <ProductCard id={products[i].id} name={products[i].name} image={products[i].image} price={products[i].price} rate={products[i].rate}/>}
           {products[i+1] && <ProductCard id={products[i].id} name={products[i+1].name} image={products[i+1].image} price={products[i+1].price} rate={products[i+1].rate}/>}
           {products[i+2] && <ProductCard id={products[i].id} name={products[i+2].name} image={products[i+2].image} price={products[i+2].price} rate={products[i+2].rate}/>}
+          {products[i+3] && <ProductCard id={products[i].id} name={products[i+3].name} image={products[i+3].image} price={products[i+3].price} rate={products[i+3].rate}/>}
         </div>
       );
     }

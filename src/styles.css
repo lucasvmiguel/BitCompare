@@ -5,8 +5,13 @@
 	margin: 0;
 }
 
+html {
+  height: 100%;
+}
+
 body {
   background-color: #f1f1f1;
+  height: 100%;
 }
 
 a {
@@ -102,6 +107,13 @@ a {
   padding-top: 7rem;
 }
 
+.notfound-section {
+  height: 100%;
+  background-color: #00175b;
+  padding-bottom: 5rem;
+  padding-top: 7rem;
+}
+
 .input-search {
   width: 35%;
   height: 3rem;
@@ -110,11 +122,29 @@ a {
   padding-top: 0.2rem;
 }
 
+.login-input {
+  height: 3rem;
+  font-size: 1.3rem;
+  padding-left: 0.5rem;
+  padding-top: 0.2rem;
+  width: 25rem;
+}
+
 .btn-search {
   cursor: pointer;
   height: 3rem;
-  width: 10%;
   margin-left: -0.2rem;
+  border: 0;
+  background-color: #06eac3;
+  color: #00175b;
+  padding-top: 0.4rem;
+  font-size: 1rem;
+}
+
+.login-submit {
+  cursor: pointer;
+  height: 3rem;
+  width: 25rem;
   border: 0;
   background-color: #06eac3;
   color: #00175b;
@@ -163,6 +193,27 @@ a {
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
 
+.menu-search {
+  padding-top: 0.7rem;
+}
+
+.black {
+  color: black;
+}
+
+.bg-color-dark-blue {
+  background-color: #00175b;
+}
+
+.menu-search-link {
+  background-color: #06eac3;
+  padding-top: 0.3rem;
+  padding-left: 1.5rem;
+  padding-right: 1.5rem;
+  padding-bottom: 0.3rem;
+  border-radius: 0.2rem;
+}
+
 @media only screen and (max-width : 320px) {
 
 }
@@ -184,27 +235,14 @@ a {
   .btn-search {
     width: 20%;
   }
-}
 
-.menu-search {
-  padding-top: 0.7rem;
-}
+  .login-input {
+    width: 90%;
+  }
 
-.black {
-  color: black;
-}
-
-.bg-color-dark-blue {
-  background-color: #00175b;
-}
-
-.menu-search-link {
-  background-color: #06eac3;
-  padding-top: 0.3rem;
-  padding-left: 1.5rem;
-  padding-right: 1.5rem;
-  padding-bottom: 0.3rem;
-  border-radius: 0.2rem;
+  .login-submit {
+    width: 90%;
+  }
 }
 
 /* Small Devices, Tablets */

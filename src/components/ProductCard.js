@@ -2,7 +2,7 @@ import React from 'react';
 import {Link} from 'react-router-dom';
 
 const ProductCard = ({id, name, image, rate, price}) => (
-  <div className="col-xs-12 col-sm-6 col-md-4">
+  <div className="col-xs-12 col-sm-6 col-md-3">
     <div className="padding-0-5 margin-0-5 card">
       <div>
         <Link to={'/produto/' + id}>
