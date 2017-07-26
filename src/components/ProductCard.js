@@ -1,9 +1,11 @@
 import React from 'react';
 import {Link} from 'react-router-dom';
 
-const ProductCard = ({id, name, image, rate, price}) => (
+const ProductCard = ({id, name, image, rate, price, isFavorite}) => (
   <div className="col-xs-12 col-sm-6 col-md-3">
     <div className="padding-0-5 margin-0-5 card">
+      {!isFavorite && <a className="product-card-favorite bg-color-dark-blue white cursor-pointer">+</a>}
+      {isFavorite && <a className="product-card-favorite bg-color-light-blue dark-blue cursor-pointer">+</a>}
       <div>
         <Link to={'/produto/' + id}>
           <img className="width-100" src={image}/>

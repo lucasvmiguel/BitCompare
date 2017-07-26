@@ -28,21 +28,19 @@ class NotFound extends React.Component {
 
   render() {
     return (
-      <div>
-        <div className="center notfound-section ">
-          <div>
-            <img src="logo.png"/>
-          </div>
-          <div className="search-section padding-top-2">
-            <h1 className="light-blue">PÁGINA NÃO ENCONTRADA!!!</h1>
-          </div>
-          <div className="search-section padding-top-2">
-            <input type="text" name="search" className="input-search" value={this.state.value} onChange={this.handleChange} onKeyDown={this.handleKeyDown} placeholder="Procure por algum produto..."/>
-            <button onClick={this.handleSubmit} className="btn-search">Buscar</button>
-          </div>
-          <div className="padding-top-1 light-blue">
-            <p>Busque na americanas.com, submarino, shoptime, soubarato...</p>
-          </div>
+      <div className="center height-100 notfound-section">
+        <div>
+          <h1 className="light-blue font-size-8">OPS!</h1>
+        </div>
+        <div className="padding-top-2">
+          <h1 className="light-blue">PÁGINA NÃO ENCONTRADA</h1>
+        </div>
+        <div className="padding-top-2">
+          <input type="text" name="search" className="input-search" value={this.state.value} onChange={this.handleChange} onKeyDown={this.handleKeyDown} placeholder="Procure por algum produto..."/>
+          <button onClick={this.handleSubmit} className="btn-search">Buscar</button>
+        </div>
+        <div className="padding-top-1 light-blue">
+          <p>Busque na americanas.com, submarino, shoptime, soubarato...</p>
         </div>
       </div>
     );

@@ -12,7 +12,7 @@ const Product = ({loading, product}) => {
       <div className="padding-top-3">
         {loading && <p className="center padding-1"> Carregando... </p>}
         {!loading && (
-          <div className="row">
+          <div className="row margin-right-0-imp">
             <div className="col-md-6 col-xs-12">
               <div className="row">
                 <ProductDetail product={product}/>

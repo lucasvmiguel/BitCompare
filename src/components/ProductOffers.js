@@ -13,7 +13,7 @@ const ProductOffers = ({offers}) => (
             </div>
             <div className="col-xs-4 padding-0-5 center padding-top-1">{o.price}</div>
             <div className="col-xs-4 padding-0-5 center padding-top-1">
-              <a href="">
+              <a href="" className="bg-color-dark-blue white padding-0-5 cursor-pointer">
                 Ver oferta
               </a>
             </div>

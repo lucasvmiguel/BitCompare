@@ -39,17 +39,17 @@ class Login extends React.Component {
           </div>
           <div className="row">
             <div className="col-xs-12 padding-top-1">
-              <input type="text" name="login-email" className="login-input" value={this.state.value} onChange={this.handleChange} onKeyDown={this.handleKeyDown} placeholder="E-mail"/>
+              <input type="text" name="login-email" className="text-input" value={this.state.value} onChange={this.handleChange} onKeyDown={this.handleKeyDown} placeholder="E-mail"/>
             </div>
           </div>
           <div className="row padding-top-1">
             <div className="col-xs-12">
-              <input type="text" name="login-email" className="login-input" value={this.state.value} onChange={this.handleChange} onKeyDown={this.handleKeyDown} placeholder="Senha"/>
+              <input type="text" name="login-email" className="text-input" value={this.state.value} onChange={this.handleChange} onKeyDown={this.handleKeyDown} placeholder="Senha"/>
             </div>
           </div>
           <div className="row padding-top-1">
             <div className="col-xs-12">
-              <button onClick={this.handleSubmit} className="login-submit">Login</button>
+              <button onClick={this.handleSubmit} className="text-submit">Login</button>
             </div>
           </div>
         </div>

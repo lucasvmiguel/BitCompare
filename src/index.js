@@ -17,6 +17,8 @@ import ProductContainer from './containers/Product';
 import SignupContainer from './containers/Signup';
 import LoginContainer from './containers/Login';
 import NotFoundContainer from './containers/NotFound';
+import ProfileContainer from './containers/Profile';
+import FavoriteContainer from './containers/Favorite';
 
 // import css files
 import './styles.css';
@@ -36,6 +38,8 @@ const render = () => ReactDOM.render(
         <Route path="/produto/:id" component={ProductContainer} />
         <Route path="/inscrever" component={SignupContainer} />
         <Route path="/login" component={LoginContainer} />
+        <Route path="/perfil" component={ProfileContainer} />
+        <Route path="/favoritos" component={FavoriteContainer} />
         <Route component={NotFoundContainer}/>
       </Switch>
     </Router>

@@ -4,7 +4,7 @@ import UserForm from '../components/UserForm';
 
 const mapStateToProps = (state, ownProps) => {
   return {
-    isNewUser: true
+    isNewUser: false
   };
 };
 
