@@ -30,13 +30,13 @@ class Home extends React.Component {
   handleKeyDown(event) {
     if (event.key === 'Enter') {
       event.preventDefault()
-      window.location = '/busca?conteudo=' + this.state.value;
+      if (this.state.value) return window.location = '/busca?conteudo=' + this.state.value;
     }
   }
 
   handleSubmit(event) {
     event.preventDefault();
-    window.location = '/busca?conteudo=' + this.state.value;
+    if (this.state.value) return window.location = '/busca?conteudo=' + this.state.value;
   }
 
   render() {
@@ -44,21 +44,22 @@ class Home extends React.Component {
       <div className="height-100">
         <div className="center home-section">
           <div>
-            <img src="logo.png"/>
+            <img src="logo.png" className="logo" alt="logo"/>
           </div>
           <div className="padding-top-2">
-            <h1 className="light-blue">WE ALL COMPARE PRODUCTS</h1>
+            <h1 className="light-blue">BIT COMPARE</h1>
+            <h4 className="light-blue">BECAUSE WE ALL COMPARE PRODUCTS</h4>
           </div>
           <div className="padding-top-2">
-            <input type="text" name="search" className="input-search" value={this.state.value} onChange={this.handleChange} onKeyDown={this.handleKeyDown} placeholder="Procure por algum produto..."/>
+            <input type="text" name="search" className="input-search" value={this.state.value} onChange={this.handleChange} onKeyDown={this.handleKeyDown} placeholder="Procure por algum produto..." required/>
             <button onClick={this.handleSubmit} className="btn-search">Buscar</button>
           </div>
           <div className="padding-top-1 light-blue">
-            <p>Busque na americanas.com, submarino, shoptime, soubarato...</p>
+            <p>Busque produtos em diversos e-commerces...</p>
           </div>
         </div>
         <div className="user-icon">
-          <img className="width-1-5 cursor-pointer" src="svgs/user-blue.svg" onClick={this.openMenuLogin}></img>
+          <img className="width-1-5 cursor-pointer" src="svgs/user-blue.svg" onClick={this.openMenuLogin} alt="user-icon"></img>
         </div>
         <div id="sidenavLogin" className="sidenav-right">
           <a href="javascript:void(0)" className="closebtn" onClick={this.closeMenuLogin}>&times;</a>

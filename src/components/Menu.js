@@ -23,16 +23,17 @@ class Menu extends React.Component {
         <div className="row menu">
           <div className="col-xs-2 center padding-top-0-5">
             <Link to="/">
-              <img className="width-1-5" src="svgs/search-icon.svg"></img>
+              <img className="width-1-5" src="svgs/search-icon.svg" alt="search-icon"></img>
             </Link>
           </div>
           <div className="col-xs-8 center padding-top-0-5">
             <Link to="/">
-              <img className="width-2" src="logo.png"></img>
+              <img className="menu-logo" src="logo.png" alt="logo"></img>
+              <span className="light-blue padding-1">BIT COMPARE</span>
             </Link>
           </div>
           <div className="col-xs-2 center padding-top-0-5">
-            <img className="width-1-5 cursor-pointer" src="svgs/user-blue.svg" onClick={this.openMenuLogin}></img>
+            <img className="width-1-5 cursor-pointer" src="svgs/user-blue.svg" onClick={this.openMenuLogin} alt="user-icon"></img>
           </div>
         </div>
         <div id="sidenavLogin" className="sidenav-right">

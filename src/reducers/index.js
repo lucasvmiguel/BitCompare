@@ -1,19 +1,13 @@
 import { combineReducers } from 'redux'
 
-import home from './home';
-import login from './login';
-import notFound from './notFound';
+import products from './products';
 import product from './product';
-import search from './search';
-import signup from './signup';
+import user from './user';
 
 const reducers = combineReducers({
-  home,
-  login,
-  notFound,
+  products,
   product,
-  search,
-  signup
+  user,
 });
 
 export default reducers;

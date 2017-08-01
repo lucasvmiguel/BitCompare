@@ -100,6 +100,10 @@ a {
   word-wrap: break-word;
 }
 
+.product-card-title-card:hover {
+  color: #00175b;
+}
+
 .align-right {
   text-align: right;
 }
@@ -306,6 +310,22 @@ div.scrollmenu div {
   width: 10rem;
 }
 
+.search-card {
+  height: 28rem;
+}
+
+.see-offer-btn:hover {
+  box-shadow: inset 2px 2px 5px black;
+}
+
+.logo {
+  width: 10rem;
+}
+
+.menu-logo {
+  width: 1.6rem;
+}
+
 @media only screen and (max-width : 320px) {
 
 }
@@ -330,6 +350,10 @@ div.scrollmenu div {
 
   .sidenav-right {padding-top: 15px;}
   .sidenav-right a {font-size: 18px;}
+
+  .search-card {
+    height: 32rem;
+  }
 }
 
 /* Small Devices, Tablets */

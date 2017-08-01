@@ -1,4 +1,5 @@
 import React from 'react';
+import R from 'ramda';
 
 const ProductDetail = ({product}) => (
   <div className="col-xs-12">
@@ -8,14 +9,14 @@ const ProductDetail = ({product}) => (
         <div className="center">
           {!product.isFavorite && <a className="product-card-favorite bg-color-dark-blue white cursor-pointer">+</a>}
           {product.isFavorite && <a className="product-card-favorite bg-color-light-blue dark-blue cursor-pointer">+</a>}
-          <img className="product-detail-img" src={product.image}/>
+          <img className="product-detail-img" src={R.path(['images', 0, 'big'], product)} alt="product"/>
         </div>
         <div className="padding-bottom-1 padding-top-1">
           <h3 className="product-card-title">{product.name}</h3>
         </div>
         <div className="row">
-          <div className="col-xs-6">R$ {product.price}</div>
-          <div className="col-xs-6 align-right">{product.rate}/5</div>
+          <div className="col-xs-6">R$ {R.path(['offers', 0, 'salesPrice'], product)}</div>
+          {product.rating !== 0 && <div className="col-xs-6 align-right">{product.rating.toFixed(1)}/5</div>}
         </div>
       </div>
     </div>

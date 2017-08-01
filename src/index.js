@@ -25,6 +25,7 @@ import './styles.css';
 
 // apply all reducers and middlewares
 let store = createStore(reducers, middlewares);
+window.store = store;
 
 const customHistory = createBrowserHistory();
 

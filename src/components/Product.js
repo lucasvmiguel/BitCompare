@@ -1,4 +1,5 @@
 import React from 'react';
+import R from 'ramda';
 
 import Menu from './Menu';
 import ProductAttributes from './ProductAttributes';
@@ -15,14 +16,15 @@ const Product = ({loading, product}) => {
           <div className="row margin-right-0-imp">
             <div className="col-md-6 col-xs-12">
               <div className="row">
-                <ProductDetail product={product}/>
+                {product && product && <ProductDetail product={product}/>}
               </div>
               <div className="row">
-                <ProductOffers offers={product.offers}/>
+                {product && product.offers && <ProductOffers id={product.id} offers={product.offers}/>}
               </div>
             </div>
             <div className="col-md-6 col-xs-12">
-              <ProductAttributes attributes={product.attributes}/>
+              {R.path(['attributes', 0, 'properties'], product) && <ProductAttributes attributes={product.attributes[0].properties}/>}
+              {!R.path(['attributes', 0, 'properties'], product) && <p className="center padding-1">Não tem informações técnicas sobre o produto!</p>}
             </div>
           </div>
         )}

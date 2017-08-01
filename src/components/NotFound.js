@@ -40,7 +40,7 @@ class NotFound extends React.Component {
           <button onClick={this.handleSubmit} className="btn-search">Buscar</button>
         </div>
         <div className="padding-top-1 light-blue">
-          <p>Busque na americanas.com, submarino, shoptime, soubarato...</p>
+          <p>Busque produtos em diversos e-commerces...</p>
         </div>
       </div>
     );

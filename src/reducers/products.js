@@ -1,27 +1,28 @@
 import {
-  FETCH_PRODUCT,
-  FETCH_PRODUCT_SUCCESS,
-  FETCH_PRODUCT_ERROR,
-} from '../constants/product';
+  FETCH_PRODUCTS,
+  FETCH_PRODUCTS_SUCCESS,
+  FETCH_PRODUCTS_ERROR,
+} from '../constants/products';
 
 const initialState = {};
 
-export default function product(state = initialState, action) {
+export default function products(state = initialState, action) {
   switch (action.type) {
-    case FETCH_PRODUCT:
+    case FETCH_PRODUCTS:
       return {
         ...state,
+        searchTerm: action.searchTerm,
         isLoading: true,
       };
 
-    case FETCH_PRODUCT_SUCCESS:
+    case FETCH_PRODUCTS_SUCCESS:
       return {
         ...state,
-        product: action.product,
+        products: action.products,
         isLoading: false,
       };
 
-    case FETCH_PRODUCT_ERROR:
+    case FETCH_PRODUCTS_ERROR:
       return {
         ...state,
         error: action.error,

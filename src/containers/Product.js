@@ -1,24 +1,35 @@
+import React from 'react';
 import { connect } from 'react-redux';
 
+import { fetchProduct } from '../actions/product';
 import Product from '../components/Product';
+
+const fetchProductsReq = ({id, dispatch}) => {
+  dispatch(fetchProduct(id));
+};
+
+class ProductContainer extends React.Component {
+  componentDidMount() {
+    fetchProductsReq({id: this.props.match.params.id, dispatch: this.props.dispatch});
+  }
+
+  render() {
+    return <Product {...this.props}/>
+  }
+}
 
 const mapStateToProps = (state, ownProps) => {
   return {
-    loading: false,
-    product: {
-      image: 'http://via.placeholder.com/500x500',
-      id: '1',
-      name: 'TESTEEEEEEEEEEEEEEEEEEEEEEE',
-      price: 999.99,
-      rate: 4.5,
-      attributes: [{name: 'memoria', value: '8gb'}, {name: 'memoria 2', value: '16gb'}],
-      offers: [{name: 'eloja', brand: 'americanas.com', price: 888.88}, {name: 'eloja', brand: 'shoptime', price: 888.88}]
-    }
+    loading: state.product.isLoading,
+    product: state.product.product
   };
 };
 
 const mapDispatchToProps = (dispatch) => {
-  return {};
+  return {
+    dispatch: dispatch
+  };
 };
 
-export default connect(mapStateToProps, mapDispatchToProps)(Product);
+
+export default connect(mapStateToProps, mapDispatchToProps)(ProductContainer);

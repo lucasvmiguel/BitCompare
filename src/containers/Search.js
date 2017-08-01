@@ -1,28 +1,37 @@
+import React from 'react';
 import { connect } from 'react-redux';
+import { parse } from 'query-string';
 
+import { fetchProducts } from '../actions/products';
 import Search from '../components/Search';
 
-const products = [
-  {id: 1, name: "TESTEEEEEEEEEEEEEEEEEEEEEEEEEEEE", price: 999.99, rate: 4.5, image: 'http://via.placeholder.com/500x500'},
-  {id: 1, name: "TESTEEEEEEEEEEEEEEEEEEEEEEEEEEEE", price: 999.99, rate: 4.5, image: 'http://via.placeholder.com/500x500'},
-  {id: 1, name: "TESTEEEEEEEEEEEEEEEEEEEEEEEEEEEE", price: 999.99, rate: 4.5, image: 'http://via.placeholder.com/500x500'},
-  {id: 1, name: "TESTEEEEEEEEEEEEEEEEEEEEEEEEEEEE", price: 999.99, rate: 4.5, image: 'http://via.placeholder.com/500x500'},
-  {id: 1, name: "TESTEEEEEEEEEEEEEEEEEEEEEEEEEEEE", price: 999.99, rate: 4.5, image: 'http://via.placeholder.com/500x500'},
-  {id: 1, name: "TESTEEEEEEEEEEEEEEEEEEEEEEEEEEEE", price: 999.99, rate: 4.5, image: 'http://via.placeholder.com/500x500'},
-  {id: 1, name: "TESTEEEEEEEEEEEEEEEEEEEEEEEEEEEE", price: 999.99, rate: 4.5, image: 'http://via.placeholder.com/500x500'},
-  {id: 1, name: "TESTEEEEEEEEEEEEEEEEEEEEEEEEEEEE", price: 999.99, rate: 4.5, image: 'http://via.placeholder.com/500x500'},
-]
+const fetchProductsReq = ({content, dispatch}) => {
+  dispatch(fetchProducts(content));
+};
+
+class SearchContainer extends React.Component {
+  componentDidMount() {
+    const qs = parse(this.props.location.search);
+    fetchProductsReq({content: qs.conteudo, dispatch: this.props.dispatch});
+  }
+
+  render() {
+    return <Search {...this.props}/>
+  }
+}
 
 const mapStateToProps = (state, ownProps) => {
   return {
-    loading: false,
-    searchTerm: "bla",
-    products: products
+    loading: state.products.isLoading,
+    searchTerm: state.products.searchTerm,
+    products: state.products.products
   };
 };
 
 const mapDispatchToProps = (dispatch) => {
-  return {};
+  return {
+    dispatch: dispatch
+  };
 };
 
-export default connect(mapStateToProps, mapDispatchToProps)(Search);
+export default connect(mapStateToProps, mapDispatchToProps)(SearchContainer);
