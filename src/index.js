@@ -4,6 +4,8 @@ import { createStore } from 'redux';
 import { Provider } from 'react-redux';
 import createBrowserHistory from 'history/createBrowserHistory'
 import { Router, Route, Switch } from 'react-router-dom';
+import cookie from 'js-cookie';
+
 import registerServiceWorker from './registerServiceWorker';
 
 // import store requirements
@@ -20,6 +22,8 @@ import NotFoundContainer from './containers/NotFound';
 import ProfileContainer from './containers/Profile';
 import FavoriteContainer from './containers/Favorite';
 
+import { setUserCredentials } from './actions/user';
+
 // import css files
 import './styles.css';
 
@@ -28,6 +32,7 @@ let store = createStore(reducers, middlewares);
 window.store = store;
 
 const customHistory = createBrowserHistory();
+window.customHistory = customHistory;
 
 // apply routes - the routes order is important!
 const render = () => ReactDOM.render(
@@ -50,3 +55,5 @@ registerServiceWorker();
 
 render();
 store.subscribe(render);
+
+store.dispatch(setUserCredentials({idUser: cookie.get('idUser'), token: cookie.get('token')}));

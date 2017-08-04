@@ -1,13 +1,25 @@
 import React from 'react';
+import {Link} from 'react-router-dom';
 
 class NotFound extends React.Component {
   constructor(props) {
     super(props);
     this.state = {value: ''};
 
+    this.openMenuLogin = this.openMenuLogin.bind(this);
+    this.closeMenuLogin = this.closeMenuLogin.bind(this);
     this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
     this.handleKeyDown = this.handleKeyDown.bind(this);
+    this.onClickToLogout = this.onClickToLogout.bind(this);
+  }
+
+  openMenuLogin(event) {
+    document.getElementById("sidenavLogin").style.width = '250px';
+  }
+  
+  closeMenuLogin(event) {
+    document.getElementById("sidenavLogin").style.width = '0';
   }
 
   handleChange(event) {
@@ -25,6 +37,11 @@ class NotFound extends React.Component {
     event.preventDefault();
     window.location = '/busca?conteudo=' + this.state.value;
   }
+    
+  onClickToLogout(event) {
+    event.preventDefault();
+    this.props.logout();
+  }
 
   render() {
     return (
@@ -41,6 +58,17 @@ class NotFound extends React.Component {
         </div>
         <div className="padding-top-1 light-blue">
           <p>Busque produtos em diversos e-commerces...</p>
+        </div>
+        <div className="user-icon">
+          <img className="width-1-5 cursor-pointer" src="svgs/user-blue.svg" onClick={this.openMenuLogin} alt="user-icon"></img>
+        </div>
+        <div id="sidenavLogin" className="sidenav-right">
+          <a href="javascript:void(0)" className="closebtn" onClick={this.closeMenuLogin}>&times;</a>
+          {!this.props.login && <Link to="/login">Logar</Link>}
+          {!this.props.login && <Link to="/inscrever">Criar conta</Link>}
+          {this.props.login && <Link to="/perfil">Perfil</Link>}
+          {this.props.login && <Link to="/favoritos">Favoritos</Link>}
+          {this.props.login && <a onClick={this.onClickToLogout}>Logout</a>}
         </div>
       </div>
     );

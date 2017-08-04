@@ -132,6 +132,13 @@ a {
   width: 25rem;
 }
 
+.error-message {
+  height: 3rem;
+  padding-left: 0.5rem;
+  padding-top: 0.2rem;
+  width: 25rem;
+}
+
 .btn-search {
   cursor: pointer;
   height: 3rem;
@@ -341,6 +348,10 @@ div.scrollmenu div {
   }
 
   .text-input {
+    width: 90%;
+  }
+
+  .error-message {
     width: 90%;
   }
 

@@ -4,7 +4,7 @@ import R from 'ramda';
 import Menu from './Menu';
 import ProductCard from './ProductCard';
 
-const Search = ({loading, searchTerm, products}) => {
+const Search = ({loading, searchTerm, products, login, logout}) => {
   let productsComp = [];
 
   if (products) {
@@ -22,7 +22,7 @@ const Search = ({loading, searchTerm, products}) => {
 
   return (
     <div>
-      <Menu />
+      <Menu login={login} logout={logout}/>
       <div className="padding-top-3">
         {loading && <p className="center padding-1"> Carregando... </p>}
         {!loading && products && <p className="center padding-1">Encontramos {products.length} produto(s) para o termo <strong>{searchTerm}</strong></p>}

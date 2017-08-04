@@ -1,15 +1,26 @@
 import { connect } from 'react-redux';
 
+import { 
+  signupSave,
+  signupChange,
+  logout,
+} from '../actions/user';
+
 import UserForm from '../components/UserForm';
 
 const mapStateToProps = (state, ownProps) => {
   return {
-    isNewUser: true
+    login: !!state.user.idUser && !!state.user.token,
+    error: state.user.error
   };
 };
 
 const mapDispatchToProps = (dispatch) => {
-  return {};
+  return {
+    onSubmit: () => dispatch(signupSave()),
+    onChange: (user) => dispatch(signupChange(user)),
+    logout: () => dispatch(logout())
+  };
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(UserForm);

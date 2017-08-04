@@ -5,6 +5,10 @@ import { parse } from 'query-string';
 import { fetchProducts } from '../actions/products';
 import Search from '../components/Search';
 
+import {
+  logout,
+} from '../actions/user';
+
 const fetchProductsReq = ({content, dispatch}) => {
   dispatch(fetchProducts(content));
 };
@@ -24,13 +28,15 @@ const mapStateToProps = (state, ownProps) => {
   return {
     loading: state.products.isLoading,
     searchTerm: state.products.searchTerm,
-    products: state.products.products
+    products: state.products.products,
+    login: !!state.user.idUser && !!state.user.token
   };
 };
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    dispatch: dispatch
+    dispatch: dispatch,
+    logout: () => dispatch(logout())
   };
 };
 

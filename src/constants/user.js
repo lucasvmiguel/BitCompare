@@ -1,0 +1,13 @@
+export const SET_USER_CREDENTIALS = 'SET_USER_CREDENTIALS';
+
+export const SIGNUP_CHANGE = 'SIGNUP_CHANGE';
+export const SIGNUP_SAVE = 'SIGNUP_SAVE';
+export const SIGNUP_SAVE_SUCCESS = 'SIGNUP_SAVE_SUCCESS';
+export const SIGNUP_SAVE_ERROR = 'SIGNUP_SAVE_ERROR';
+
+export const LOGIN_CHANGE = 'LOGIN_CHANGE';
+export const LOGIN = 'LOGIN';
+export const LOGIN_SUCCESS = 'LOGIN_SUCCESS';
+export const LOGIN_ERROR = 'LOGIN_ERROR';
+
+export const LOGOUT = 'LOGOUT';

@@ -4,6 +4,10 @@ import { connect } from 'react-redux';
 import { fetchProduct } from '../actions/product';
 import Product from '../components/Product';
 
+import {
+  logout,
+} from '../actions/user';
+
 const fetchProductsReq = ({id, dispatch}) => {
   dispatch(fetchProduct(id));
 };
@@ -21,13 +25,15 @@ class ProductContainer extends React.Component {
 const mapStateToProps = (state, ownProps) => {
   return {
     loading: state.product.isLoading,
-    product: state.product.product
+    product: state.product.product,
+    login: !!state.user.idUser && !!state.user.token
   };
 };
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    dispatch: dispatch
+    dispatch: dispatch,
+    logout: () => dispatch(logout())
   };
 };
 

@@ -7,6 +7,7 @@ class Menu extends React.Component {
 
     this.openMenuLogin = this.openMenuLogin.bind(this);
     this.closeMenuLogin = this.closeMenuLogin.bind(this);
+    this.onClickToLogout = this.onClickToLogout.bind(this);
   }
 
   openMenuLogin(event) {
@@ -15,6 +16,11 @@ class Menu extends React.Component {
   
   closeMenuLogin(event) {
     document.getElementById("sidenavLogin").style.width = '0';
+  }
+
+  onClickToLogout(event) {
+    event.preventDefault();
+    this.props.logout();
   }
 
   render() {
@@ -38,11 +44,11 @@ class Menu extends React.Component {
         </div>
         <div id="sidenavLogin" className="sidenav-right">
           <a href="javascript:void(0)" className="closebtn" onClick={this.closeMenuLogin}>&times;</a>
-          {this.props.isLogged && <Link to="/login">Logar</Link>}
-          {this.props.isLogged && <Link to="/inscrever">Criar conta</Link>}
-          {!this.props.isLogged && <Link to="/perfil">Perfil</Link>}
-          {!this.props.isLogged && <Link to="/favoritos">Favoritos</Link>}
-          {!this.props.isLogged && <Link to="#">Logout</Link>}
+          {!this.props.login && <Link to="/login">Logar</Link>}
+          {!this.props.login && <Link to="/inscrever">Criar conta</Link>}
+          {this.props.login && <Link to="/perfil">Perfil</Link>}
+          {this.props.login && <Link to="/favoritos">Favoritos</Link>}
+          {this.props.login && <a onClick={this.onClickToLogout}>Logout</a>}
         </div>
       </div>
   )}
