@@ -66,9 +66,9 @@ class NotFound extends React.Component {
           <a href="javascript:void(0)" className="closebtn" onClick={this.closeMenuLogin}>&times;</a>
           {!this.props.login && <Link to="/login">Logar</Link>}
           {!this.props.login && <Link to="/inscrever">Criar conta</Link>}
-          {this.props.login && <Link to="/perfil">Perfil</Link>}
+          {this.props.login && <Link to={'/perfil/'+this.props.idUser}>Perfil</Link>}
           {this.props.login && <Link to="/favoritos">Favoritos</Link>}
-          {this.props.login && <a onClick={this.onClickToLogout}>Logout</a>}
+          {this.props.login && <a className="cursor-pointer" onClick={this.onClickToLogout}>Logout</a>}
         </div>
       </div>
     );

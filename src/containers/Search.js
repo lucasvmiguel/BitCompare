@@ -29,7 +29,8 @@ const mapStateToProps = (state, ownProps) => {
     loading: state.products.isLoading,
     searchTerm: state.products.searchTerm,
     products: state.products.products,
-    login: !!state.user.idUser && !!state.user.token
+    login: !!state.user.idUser && !!state.user.token,
+    idUser: state.user.idUser
   };
 };
 

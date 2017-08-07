@@ -5,11 +5,18 @@ import Menu from './Menu';
 class UserForm extends React.Component {
   constructor(props) {
     super(props);
-    this.state = {name: '', email: '', password: '', confirmPassword: '', oldPassword: ''};
+
+    const profile = this.props.profile;
+    if (profile) {
+      this.state = {name: profile.name, email: profile.email, password: '', confirmPassword: '', oldPassword: ''};
+    } else {
+      this.state = {name: '', email: '', password: '', confirmPassword: '', oldPassword: ''};
+    }
 
     this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
     this.handleKeyDown = this.handleKeyDown.bind(this);
+    debugger;
   }
 
   handleChange(event) {
@@ -52,12 +59,12 @@ class UserForm extends React.Component {
           </div>
           <div className="row">
             <div className="col-xs-12 padding-top-1">
-              <input type="text" name="email" className="text-input" value={this.state.value} onChange={this.handleChange} onKeyDown={this.handleKeyDown} placeholder="E-mail"/>
+              <input type="text" name="email" className="text-input" value={this.state.value} onChange={this.handleChange} onKeyDown={this.handleKeyDown} placeholder="E-mail" disabled={this.props.login}/>
             </div>
           </div>
           <div className="row">
             <div className="col-xs-12 padding-top-1">
-              <input disabled={this.props.login} type="text" name="name" className="text-input" value={this.state.value} onChange={this.handleChange} onKeyDown={this.handleKeyDown} placeholder="Nome"/>
+              <input type="text" name="name" className="text-input" value={this.state.value} onChange={this.handleChange} onKeyDown={this.handleKeyDown} placeholder="Nome"  disabled={!this.props.login}/>
             </div>
           </div>
           {this.props.login &&           

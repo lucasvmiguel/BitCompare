@@ -11,7 +11,8 @@ import UserForm from '../components/UserForm';
 const mapStateToProps = (state, ownProps) => {
   return {
     login: !!state.user.idUser && !!state.user.token,
-    error: state.user.error
+    error: state.user.error,
+    idUser: state.user.idUser
   };
 };
 

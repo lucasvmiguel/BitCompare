@@ -11,7 +11,8 @@ const mapStateToProps = (state, ownProps) => {
     loading: false,
     searchTerm: "bla",
     products: [],
-    login: !!state.user.idUser && !!state.user.token
+    login: !!state.user.idUser && !!state.user.token,
+    idUser: state.user.idUser
   };
 };
 

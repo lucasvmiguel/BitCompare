@@ -31,6 +31,8 @@ import './styles.css';
 let store = createStore(reducers, middlewares);
 window.store = store;
 
+store.dispatch(setUserCredentials({idUser: cookie.get('idUser'), token: cookie.get('token')}));
+
 const customHistory = createBrowserHistory();
 window.customHistory = customHistory;
 
@@ -44,7 +46,7 @@ const render = () => ReactDOM.render(
         <Route path="/produto/:id" component={ProductContainer} />
         <Route path="/inscrever" component={SignupContainer} />
         <Route path="/login" component={LoginContainer} />
-        <Route path="/perfil" component={ProfileContainer} />
+        <Route path="/perfil/:id" component={ProfileContainer} />
         <Route path="/favoritos" component={FavoriteContainer} />
         <Route component={NotFoundContainer}/>
       </Switch>
@@ -55,5 +57,3 @@ registerServiceWorker();
 
 render();
 store.subscribe(render);
-
-store.dispatch(setUserCredentials({idUser: cookie.get('idUser'), token: cookie.get('token')}));

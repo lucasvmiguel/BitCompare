@@ -13,7 +13,12 @@ import {
   LOGIN_SUCCESS,
   LOGIN_ERROR,
   LOGOUT,
+  FETCH_PROFILE,
+  FETCH_PROFILE_SUCCESS,
+  FETCH_PROFILE_ERROR,
 } from '../constants/user';
+
+import { showSnackbar } from '../services/snackbar';
 
 const initialState = {};
 
@@ -54,15 +59,26 @@ export default function user(state = initialState, action) {
       window.customHistory.push('/');
       cookie.set('token', action.token);
       cookie.set('idUser', action.idUser);
+      showSnackbar('Usuário foi logado com sucesso!');
       return {...state, isLoading: false, idUser: action.idUser, token: action.token, error: null, loginForm: {}};
 
     case LOGIN_ERROR:
       return {...state, isLoading: false, error: action.error};
 
+    case FETCH_PROFILE:
+      return {...state, isLoading: true};
+
+    case FETCH_PROFILE_SUCCESS:
+      return {...state, profile: action.profile, isLoading: false};
+
+    case FETCH_PROFILE_ERROR:
+      return {...state, error: action.error, isLoading: false};
+
     case LOGOUT:
       window.customHistory.push('/');
       cookie.set('token', '');
       cookie.set('idUser', '');
+      showSnackbar('Usuário foi deslogado com sucesso');
       return {...state, isLoading: false, idUser: '', token: '', error: null};
       
     default:

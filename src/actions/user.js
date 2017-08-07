@@ -10,6 +10,9 @@ import {
   LOGIN_SUCCESS,
   LOGIN_ERROR,
   LOGOUT,
+  FETCH_PROFILE,
+  FETCH_PROFILE_SUCCESS,
+  FETCH_PROFILE_ERROR,
 } from '../constants/user';
 
 export const setUserCredentials = ({ idUser, token }) => {
@@ -19,6 +22,8 @@ export const setUserCredentials = ({ idUser, token }) => {
     token
   };
 };
+
+//////////// SIGNUP /////////////
 
 export const signupChange = (user) => {
   return { type: SIGNUP_CHANGE, user};
@@ -66,6 +71,8 @@ export const signupSave = () => {
   };
 };
 
+//////////// LOGOUT /////////////
+
 const logoutAction = () => {
   return {
     type: LOGOUT
@@ -86,6 +93,8 @@ export const logout = () => {
   };
 };
 
+
+//////////// LOGIN /////////////
 
 export const loginChange = (user) => {
   return { type: LOGIN_CHANGE, user};
@@ -129,5 +138,42 @@ export const login = () => {
       .then(response => response.json())
       .then(json => dispatch(loginSuccess(json)))
       .catch(err => dispatch(loginError(err)));
+  };
+};
+
+//////////// PROFILE /////////////
+
+const fetchProfileAction = () => {
+  return {
+    type: FETCH_PROFILE,
+  };
+};
+
+const fetchProfileSuccess = (user) => {
+  return {
+    type: FETCH_PROFILE_SUCCESS, 
+    profile: user
+  };
+};
+
+const fetchProfileError = (error) => {
+  return {
+    type: FETCH_PROFILE_ERROR, 
+    error: error
+  };
+};
+
+export const fetchProfile = (id) => {
+  return (dispatch, getState) => {
+    const state = getState();
+    const token = state.user.token;
+
+    dispatch(fetchProfileAction())
+    return fetch(`http://localhost:8080/user/${id}`, {
+      headers: {'token': token}
+    })
+      .then(response => response.json())
+      .then(json => dispatch(fetchProfileSuccess(json)))
+      .catch(err => dispatch(fetchProfileError(err)));
   };
 };

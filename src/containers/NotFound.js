@@ -8,7 +8,8 @@ import {
 
 const mapStateToProps = (state, ownProps) => {
   return {
-    login: !!state.user.idUser && !!state.user.token
+    login: !!state.user.idUser && !!state.user.token,
+    idUser: state.user.idUser
   };
 };
 

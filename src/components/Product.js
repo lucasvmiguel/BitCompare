@@ -6,10 +6,10 @@ import ProductAttributes from './ProductAttributes';
 import ProductOffers from './ProductOffers';
 import ProductDetail from './ProductDetail';
 
-const Product = ({loading, product, login, logout}) => {
+const Product = ({loading, product, login, logout, idUser}) => {
   return (
     <div>
-      <Menu login={login} logout={logout}/>
+      <Menu login={login} logout={logout} idUser={idUser}/>
       <div className="padding-top-3">
         {loading && <p className="center padding-1"> Carregando... </p>}
         {!loading && (
