@@ -1,5 +1,7 @@
 import fetch from 'node-fetch';
 
+import { acceptOrRejectRequest } from '../services/request';
+
 import {
   FETCH_PRODUCTS,
   FETCH_PRODUCTS_SUCCESS,
@@ -31,7 +33,7 @@ export const fetchProducts = (content) => {
   return dispatch => {
     dispatch(fetchProductsAction(content))
     return fetch(`http://localhost:8080/product?content=${content}`)
-      .then(response => response.json())
+      .then(response => acceptOrRejectRequest(response))
       .then(json => dispatch(fetchProductsSuccess(json)))
       .catch(err => dispatch(fetchProductsError(err)));
   };

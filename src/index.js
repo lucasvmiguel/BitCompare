@@ -22,7 +22,7 @@ import NotFoundContainer from './containers/NotFound';
 import ProfileContainer from './containers/Profile';
 import FavoriteContainer from './containers/Favorite';
 
-import { setUserCredentials } from './actions/user';
+import { setUserCredentials, fetchProfile } from './actions/user';
 
 // import css files
 import './styles.css';
@@ -31,7 +31,13 @@ import './styles.css';
 let store = createStore(reducers, middlewares);
 window.store = store;
 
-store.dispatch(setUserCredentials({idUser: cookie.get('idUser'), token: cookie.get('token')}));
+const idUser = cookie.get('idUser');
+const token = cookie.get('token');
+
+store.dispatch(setUserCredentials({idUser, token}));
+if (idUser && token) {
+  store.dispatch(fetchProfile(idUser));
+}
 
 const customHistory = createBrowserHistory();
 window.customHistory = customHistory;

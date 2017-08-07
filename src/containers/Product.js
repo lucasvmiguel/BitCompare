@@ -4,9 +4,7 @@ import { connect } from 'react-redux';
 import { fetchProduct } from '../actions/product';
 import Product from '../components/Product';
 
-import {
-  logout,
-} from '../actions/user';
+import { logout, addOrRemoveProductToUser } from '../actions/user';
 
 const fetchProductsReq = ({id, dispatch}) => {
   dispatch(fetchProduct(id));
@@ -27,14 +25,16 @@ const mapStateToProps = (state, ownProps) => {
     loading: state.product.isLoading,
     product: state.product.product,
     login: !!state.user.idUser && !!state.user.token,
-    idUser: state.user.idUser
+    idUser: state.user.idUser,
+    user: state.user.profile
   };
 };
 
 const mapDispatchToProps = (dispatch) => {
   return {
     dispatch: dispatch,
-    logout: () => dispatch(logout())
+    logout: () => dispatch(logout()),
+    addOrRemoveProductToUser: (id) => dispatch(addOrRemoveProductToUser(id)),
   };
 };
 

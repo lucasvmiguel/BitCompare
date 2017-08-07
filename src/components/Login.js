@@ -1,6 +1,7 @@
 import React from 'react';
 
 import Menu from './Menu';
+import Error from './Error';
 
 class Login extends React.Component {
   constructor(props) {
@@ -47,7 +48,7 @@ class Login extends React.Component {
           </div>
           <div className="row">
             {this.props.error && <div className="col-xs-12 padding-top-1">
-              <p className="error-message">ERROR</p>
+              <Error error={this.props.error} />
             </div>}
           </div>
           <div className="row">

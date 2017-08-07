@@ -133,10 +133,14 @@ a {
 }
 
 .error-message {
-  height: 3rem;
-  padding-left: 0.5rem;
-  padding-top: 0.2rem;
   width: 25rem;
+  background-color: #f44336;
+  padding-top: 0.5rem;
+  padding-bottom: 0.5rem;
+  height: 3rem;
+  font-size: 1.1rem;
+  border-radius: 0.2rem;
+  color: white;
 }
 
 .btn-search {
@@ -347,11 +351,11 @@ div.scrollmenu div {
     width: 20%;
   }
 
-  .text-input {
+  .error-message {
     width: 90%;
   }
 
-  .error-message {
+  .text-input {
     width: 90%;
   }
 
@@ -406,7 +410,7 @@ div.scrollmenu div {
     padding: 16px; /* Padding */
     position: fixed; /* Sit on top of the screen */
     z-index: 1; /* Add a z-index if needed */
-    left: 50%; /* Center the snackbar */
+    left: 45%; /* Center the snackbar */
     bottom: 30px; /* 30px from the bottom */
 }
 
@@ -439,4 +443,10 @@ However, delay the fade out process for 2.5 seconds */
 @keyframes fadeout {
     from {bottom: 30px; opacity: 1;}
     to {bottom: 0; opacity: 0;}
+}
+
+.rating {
+  /*color: #ffd700;*/
+  color: #00175b;
+  font-size: 1.8rem;
 }

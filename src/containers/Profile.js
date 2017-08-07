@@ -6,6 +6,8 @@ import UserForm from '../components/UserForm';
 
 import {
   logout,
+  editUser,
+  editUserChange,
 } from '../actions/user';
 
 const fetchProfileReq = ({id, dispatch}) => {
@@ -24,6 +26,8 @@ class ProfileContainer extends React.Component {
 
 const mapStateToProps = (state, ownProps) => {
   return {
+    error: state.user.error,
+    loading: state.user.isLoading,
     login: !!state.user.idUser && !!state.user.token,
     idUser: state.user.idUser,
     profile: state.user.profile
@@ -32,6 +36,8 @@ const mapStateToProps = (state, ownProps) => {
 
 const mapDispatchToProps = (dispatch) => {
   return {
+    onSubmit: () => dispatch(editUser()),
+    onChange: (user) => dispatch(editUserChange(user)),
     logout: () => dispatch(logout()),
     dispatch: dispatch
   };

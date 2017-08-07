@@ -78,7 +78,6 @@ class Home extends React.Component {
         <div className="hidden-md ">
           <Categories/>
         </div>
-        <div id="snackbar"></div>
       </div>
     );
   }

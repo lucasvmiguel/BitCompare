@@ -6,7 +6,7 @@ import ProductAttributes from './ProductAttributes';
 import ProductOffers from './ProductOffers';
 import ProductDetail from './ProductDetail';
 
-const Product = ({loading, product, login, logout, idUser}) => {
+const Product = ({loading, product, login, logout, idUser, user, addOrRemoveProductToUser}) => {
   return (
     <div>
       <Menu login={login} logout={logout} idUser={idUser}/>
@@ -16,7 +16,7 @@ const Product = ({loading, product, login, logout, idUser}) => {
           <div className="row margin-right-0-imp">
             <div className="col-md-6 col-xs-12">
               <div className="row">
-                {product && product && <ProductDetail product={product}/>}
+                {product && product && <ProductDetail product={product} login={login} isFavorite={R.contains(product.id, user.products)} addOrRemoveProductToUser={addOrRemoveProductToUser}/>}
               </div>
               <div className="row">
                 {product && product.offers && <ProductOffers id={product.id} offers={product.offers}/>}

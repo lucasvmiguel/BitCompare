@@ -1,4 +1,7 @@
 import fetch from 'node-fetch';
+import R from 'ramda';
+
+import { acceptOrRejectRequest } from '../services/request';
 
 import {
   FETCH_PRODUCT,
@@ -28,10 +31,11 @@ const fetchProductError = (error) => {
 
 export const fetchProduct = (id) => {
   return dispatch => {
-    dispatch(fetchProductAction())
+    dispatch(fetchProductAction());
     return fetch(`http://localhost:8080/product/${id}`)
-      .then(response => response.json())
+      .then(response => acceptOrRejectRequest(response))
       .then(json => dispatch(fetchProductSuccess(json)))
       .catch(err => dispatch(fetchProductError(err)));
   };
 };
+

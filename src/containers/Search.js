@@ -5,9 +5,7 @@ import { parse } from 'query-string';
 import { fetchProducts } from '../actions/products';
 import Search from '../components/Search';
 
-import {
-  logout,
-} from '../actions/user';
+import { logout, addOrRemoveProductToUser } from '../actions/user';
 
 const fetchProductsReq = ({content, dispatch}) => {
   dispatch(fetchProducts(content));
@@ -30,14 +28,16 @@ const mapStateToProps = (state, ownProps) => {
     searchTerm: state.products.searchTerm,
     products: state.products.products,
     login: !!state.user.idUser && !!state.user.token,
-    idUser: state.user.idUser
+    idUser: state.user.idUser,
+    user: state.user.profile
   };
 };
 
 const mapDispatchToProps = (dispatch) => {
   return {
     dispatch: dispatch,
-    logout: () => dispatch(logout())
+    logout: () => dispatch(logout()),
+    addOrRemoveProductToUser: (id) => dispatch(addOrRemoveProductToUser(id)),
   };
 };
 
